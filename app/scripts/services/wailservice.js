@@ -23,7 +23,7 @@ angular.module('wailerGuiApp')
         return wails;
       },
       postWail: function(wail){
-        wails.push(wail);
+        wails.unshift(wail);
       }
     };
   });

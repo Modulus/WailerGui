@@ -13,10 +13,11 @@ angular.module('wailerGuiApp')
     $scope.newWail = '';
     $scope.wails = [];
     $scope.error = '';
+    $scope.show = false;
 
     $scope.pushWail = function () {
       if ($scope.newWail) {
-
+        $scope.show = false;
         $scope.error = '';
         $log.info('Pubhsing new wail to wails: ' + $scope.newWail);
         var wail = {text: $scope.newWail, name: nameService.createName(), timestamp: new Date()};
@@ -25,19 +26,12 @@ angular.module('wailerGuiApp')
         $scope.newWail = '';
       }
       else {
-          $scope.showAlert();
+        $scope.show = true;
           $log.error('No text entered, showing error dialog.');
           $scope.error = 'Please give us text, GIVE US TEXT!!! Pretty please.';
       }
     };
 
-    $scope.hideAlert = function(){
-      $('#errorDialog').addClass('ng-hide');
-    };
-
-    $scope.showAlert = function(){
-      $('#errorDialog').removeClass('ng-hide')
-    };
 
     function init() {
       $scope.wails = wailService.getWails();
