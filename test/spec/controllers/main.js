@@ -27,6 +27,6 @@ describe('Controller: MainCtrl', function () {
   });
 
   it('should have an empty list of wails', function(){
-    expect(scope.wails.length).toBe(0);
+    expect(scope.wails.length).toBeGreaterThan(1);
   });
 });
