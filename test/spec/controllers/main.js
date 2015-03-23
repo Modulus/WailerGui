@@ -16,7 +16,17 @@ describe('Controller: MainCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should have these fields declared', function(){
+    expect(scope.newWail).toBeDefined();
+    expect(scope.wails).toBeDefined();
+  });
+
+  it('should have a newWail with an empty string', function () {
+    expect(scope.newWail.length).toBe(0);
+    expect(scope.newWail).toBe("");
+  });
+
+  it('should have an empty list of wails', function(){
+    expect(scope.wails.length).toBe(0);
   });
 });
