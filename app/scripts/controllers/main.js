@@ -15,7 +15,8 @@ angular.module('wailerGuiApp')
 
     $scope.pushWail = function(){
         $log.info('Pubhsing new wail to wails: '+$scope.newWail);
-        $scope.wails.push($scope.newWail);
+        var wail = {text: $scope.newWail, name: nameService.createName(), timestamp: new Date()}
+        wailService.postWail(wail);
     };
 
     function init(){

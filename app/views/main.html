@@ -14,8 +14,8 @@
 
 <div id="wails" ng-repeat="wail in wails">
   <div class="panel panel-info">
-    <div class="panel-heading">Anonymous</div>
-    <div class="panel-body">{{wail}}</div>
+    <div class="panel-heading">{{wail.name}} @ {{wail.timestamp | date: 'd/MMMM/yyyy - HH:mm:ss'}}</div>
+    <div class="panel-body">{{wail.text}}</div>
   </div>
 
 </div>
