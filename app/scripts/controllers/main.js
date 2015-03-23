@@ -12,6 +12,10 @@ angular.module('wailerGuiApp')
     $scope.newWail = "";
     $scope.wails = [];
 
+    $scope.pushWail = function(){
+
+    };
+
     function init(){
       $scope.wails = ["I hate my boss", "I'm sick of all this here nonsense guys!", "Why am I here?", "HULK SMASH!!!!"];
     }
