@@ -9,8 +9,8 @@
  */
 angular.module('wailerGuiApp')
   .controller('SecretCtrl', function ($scope, nameService) {
-    this.$inject = ['$scope', 'nameService']
-    $scope.names = []
+    this.$inject = ['$scope', 'nameService'];
+    $scope.names = [];
 
     $scope.pushName = function(){
       $scope.names.push(nameService.createName());

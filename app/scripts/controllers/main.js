@@ -9,20 +9,20 @@
  */
 angular.module('wailerGuiApp')
   .controller('MainCtrl', function ($scope, $log, nameService, wailService) {
-    this.$inject = ['$scope', '$log', 'nameService', 'wailService']
-    $scope.newWail = "";
+    this.$inject = ['$scope', '$log', 'nameService', 'wailService'];
+    $scope.newWail = '';
     $scope.wails = [];
-    $scope.error = ""
+    $scope.error = '';
 
     $scope.pushWail = function () {
       if ($scope.newWail) {
 
-        $scope.error = "";
+        $scope.error = '';
         $log.info('Pubhsing new wail to wails: ' + $scope.newWail);
-        var wail = {text: $scope.newWail, name: nameService.createName(), timestamp: new Date()}
+        var wail = {text: $scope.newWail, name: nameService.createName(), timestamp: new Date()};
         wailService.postWail(wail);
         $log.info('Clearing new wail');
-        $scope.newWail = "";
+        $scope.newWail = '';
       }
       else {
           $scope.showAlert();

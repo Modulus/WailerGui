@@ -20,7 +20,7 @@ angular.module('wailerGuiApp')
     // Public API here
     return {
       getWails: function () {
-        return wails
+        return wails;
       },
       postWail: function(wail){
         wails.push(wail);

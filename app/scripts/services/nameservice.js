@@ -26,9 +26,9 @@ angular.module('wailerGuiApp')
     // Public API here
     return {
       createName: function () {
-        var word_index = Math.floor(Math.random() * words.length + 1);
-        var animal_index = Math.floor(Math.random() * animals.length + 1);
-        var name =  words[word_index] + " " + animals[animal_index];
+        var wordIndex = Math.floor(Math.random() * words.length + 1);
+        var animalIndex = Math.floor(Math.random() * animals.length + 1);
+        var name =  words[wordIndex] + ' ' + animals[animalIndex];
         return toTitleCase(name);
       }
     };
