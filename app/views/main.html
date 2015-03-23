@@ -3,9 +3,9 @@
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon1"><i class="glyphicon glyphicon-pencil"></i></span>
       <input type="text" class="form-control" placeholder="Enter your wail, so you may be heard!"
-             aria-describedby="basic-addon1">
+             aria-describedby="basic-addon1" ng-model="newWail">
       <span class="input-group-btn">
-        <button id="publishButton" class="btn btn-primary" type="button">Publish</button>
+        <button id="publishButton" class="btn btn-primary" type="button" ng-click="pushWail()">Publish</button>
       </span>
     </div>
 

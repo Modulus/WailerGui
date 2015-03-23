@@ -8,16 +8,18 @@
  * Controller of the wailerGuiApp
  */
 angular.module('wailerGuiApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, $log, nameService, wailService) {
+    this.$inject = ['$scope', '$log', 'nameService', 'wailService']
     $scope.newWail = "";
     $scope.wails = [];
 
     $scope.pushWail = function(){
-
+        $log.info('Pubhsing new wail to wails: '+$scope.newWail);
+        $scope.wails.push($scope.newWail);
     };
 
     function init(){
-      $scope.wails = ["I hate my boss", "I'm sick of all this here nonsense guys!", "Why am I here?", "HULK SMASH!!!!"];
+      $scope.wails = wailService.getWails();
     }
     init();
   });
