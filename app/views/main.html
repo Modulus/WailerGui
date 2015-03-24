@@ -22,8 +22,23 @@
 <div id="wails" ng-repeat="wail in wails">
   <div class="panel panel-info">
     <div class="panel-heading">{{wail.name}} @ {{wail.timestamp | date: 'd/MMMM/yyyy - HH:mm:ss'}}</div>
-    <div class="panel-body">{{wail.text}}</div>
-  </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+          {{wail.text}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <span class="pull-right"><i class="fa fa-thumbs-o-up"></i>&nbsp;<i class="fa fa-thumbs-o-down"></i></span>
+          <!--<span class="pull-right"><i class="fa fa-thumbs-up text-info"></i>&nbsp;<i class="fa fa-thumbs-down text-info"></i></span>-->
+        </div>
+      </div>
+    </div><!-- End Panel body-->
+  </div> <!--End Panel heading-->
+
+
+
 
 </div>
 
