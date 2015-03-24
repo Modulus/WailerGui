@@ -19,8 +19,8 @@
   </div>
 </div>
 
-<div id="wails" ng-repeat="wail in wails">
-  <div class="panel panel-info">
+<div id="wails" >
+  <div ng-repeat="wail in wails" class="panel panel-info">
     <div class="panel-heading">{{wail.name}} @ {{wail.timestamp | date: 'd/MMMM/yyyy - HH:mm:ss'}}</div>
     <div class="panel-body">
       <div class="row">
