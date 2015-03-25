@@ -13,12 +13,14 @@ describe('Controller: MainCtrl', function () {
 
 
         getWails: function () {
-          return wails
+          return wails;
         },
         postWail: function(wail){
           wails.push(wail);
         }
       };
+
+    $provide.factory('WailService', WailService);
   }));
 
   var MainCtrl,
@@ -40,7 +42,7 @@ describe('Controller: MainCtrl', function () {
 
   it('should have a newWail with an empty string', function () {
     expect(scope.newWail.length).toBe(0);
-    expect(scope.newWail).toBe("");
+    expect(scope.newWail).toBe('');
   });
 
   it('should have an empty list of wails', function(){
@@ -52,7 +54,7 @@ describe('Controller: MainCtrl', function () {
   });
 
   it('should have an error message if empty wail was tried to be inserted', function(){
-    scope.newWail = "";
+    scope.newWail = '';
     scope.pushWail();
     expect(scope.error.length).toBeGreaterThan(0)
   });

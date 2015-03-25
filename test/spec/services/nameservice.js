@@ -17,6 +17,6 @@ describe('Service: nameService', function () {
 
   it('should return a name', function(){
     expect(nameService.createName().length).toBeGreaterThan(6);
-  })
+  });
 
 });
