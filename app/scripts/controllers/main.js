@@ -19,8 +19,15 @@ angular.module('wailerGuiApp')
       if ($scope.newWail) {
         $scope.show = false;
         $scope.error = '';
-        $log.info('Pubhsing new wail to wails: ' + $scope.newWail);
-        var wail = {text: $scope.newWail, name: nameService.createName(), timestamp: new Date()};
+        $log.info('Publishing new wail to wails: ' + $scope.newWail);
+        var wail = {
+          text: $scope.newWail,
+          name: nameService.createName(),
+          timestamp: new Date(),
+          upVotes: 0,
+          downVotes: 0
+
+        };
         wailService.postWail(wail);
         $log.info('Clearing new wail');
         $scope.newWail = '';
@@ -31,6 +38,16 @@ angular.module('wailerGuiApp')
           $scope.error = 'Please give us text, GIVE US TEXT!!! Pretty please.';
       }
     };
+
+      $scope.voteUp = function(index){
+        $scope.wails[index].upVotes += 1;
+        $log.info($scope.wails[index].text + ' increased by one upVote');
+      };
+
+      $scope.voteDown = function(index){
+        $scope.wails[index].downVotes += 1;
+        $log.info($scope.wails[index].text + ' increased by one downVote');
+      };
 
 
     function init() {

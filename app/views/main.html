@@ -30,7 +30,10 @@
       </div>
       <div class="row">
         <div class="col-md-12">
-          <span class="pull-right"><i class="fa fa-thumbs-o-up"></i>&nbsp;<i class="fa fa-thumbs-o-down"></i></span>
+          <span class="pull-right">
+            <i class="fa fa-thumbs-o-up" ng-class="{'fa-thumbs-up text-info': hoverUp}" ng-mouseenter="hoverUp = true" ng-mouseleave="hoverUp = false" ng-click="voteUp($index)"></i>&nbsp;
+            <i class="fa fa-thumbs-o-down" ng-class="{'fa-thumbs-down text-info': hoverDown}" ng-mouseenter="hoverDown = true" ng-mouseleave="hoverDown = false" ng-click="voteDown($index)"></i>
+          </span>
           <!--<span class="pull-right"><i class="fa fa-thumbs-up text-info"></i>&nbsp;<i class="fa fa-thumbs-down text-info"></i></span>-->
         </div>
       </div>

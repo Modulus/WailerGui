@@ -13,6 +13,15 @@ angular.module('wailerGuiApp')
     $scope.names = [];
 
     $scope.pushName = function(){
-      $scope.names.push(nameService.createName());
+      var tag = {text: nameService.createName()}
+
+      $scope.names.push(tag);
     };
+
+     $scope.pushNames = function(){
+       for(var i = 0; i < 250; i++){
+         var tag = {text: nameService.createName()}
+         $scope.names.push(tag);
+       }
+     }
   });
