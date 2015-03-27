@@ -24,12 +24,14 @@ angular.module('wailerGuiApp')
         var wail = {
           text: $scope.newWail,
           name: nameService.createName(),
-          timestamp: new Date(),
           upVotes: 0,
           downVotes: 0
 
         };
-        wailService.postWail(wail)
+
+        //timestamp: new Date(),
+
+          wailService.postWail(wail)
           .success(function(data, status, headers, config){
             $log.info('Wail posted successfully!');
           })
