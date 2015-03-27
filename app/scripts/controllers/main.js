@@ -12,6 +12,7 @@ angular.module('wailerGuiApp')
     this.$inject = ['$scope', '$log', 'nameService', 'wailService'];
     $scope.newWail = '';
     $scope.wails = [];
+    $scope.wailsMark = 50; //TODO: Use this to "get more wails" from the backend.
     $scope.error = '';
     $scope.show = false;
 
@@ -51,7 +52,24 @@ angular.module('wailerGuiApp')
 
 
     function init() {
-      $scope.wails = wailService.getWails();
+        wailService.getWails()
+          .success(function(wails){
+            $scope.wails = wails.map(function(wail){
+                var stamp = wail.timestamp;
+                var date = new Date();
+                date.setYear(stamp.year);
+                date.setMonth(stamp.monthValue);
+                date.setHours(stamp.hour);
+                date.setMinutes(stamp.minute);
+                date.setSeconds(stamp.second);
+                wail.timestamp = date;
+                return wail;
+
+            });
+          })
+          .error(function(error){
+            $log.error('Failed to get data because of: '+error);
+          });
     }
 
     init();
