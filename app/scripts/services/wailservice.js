@@ -29,7 +29,16 @@ angular.module('wailerGuiApp')
       },
       postWail: function(wail){
         $log.info("Trying to insert new wail: "+wail);
-        return $http.post(urlBase + '/wail', wail);
+        var request = {
+          method: 'POST',
+          url: urlBase + '/wail',
+          data: wail,
+          headers : {
+            'Content-Type': 'application/json'
+          }
+        };
+
+        return $http(request);
       }
     };
   });

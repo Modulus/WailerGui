@@ -29,9 +29,15 @@ angular.module('wailerGuiApp')
           downVotes: 0
 
         };
-        wailService.postWail(wail);
+        wailService.postWail(wail)
+          .success(function(data, status, headers, config){
+            $log.info('Wail posted successfully!');
+          })
+          .error(function(data, status, header, config){
+            $log.error('Failed to post wail: '+wail);
+          });
         $log.info('Clearing new wail');
-        $scope.newWail = '';
+
       }
       else {
         $scope.show = true;
