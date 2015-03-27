@@ -28,7 +28,8 @@ angular.module('wailerGuiApp')
         return $http.get(urlBase + "/wails");
       },
       postWail: function(wail){
-        wails.unshift(wail);
+        $log.info("Trying to insert new wail: "+wail);
+        return $http.post(urlBase + '/wail', wail);
       }
     };
   });
