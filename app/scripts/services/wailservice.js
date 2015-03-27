@@ -10,16 +10,8 @@
 angular.module('wailerGuiApp')
   .factory('wailService', function ($http,$log) {
     this.$inject = ['$http', '$log'];
-    var urlBase = "http://localhost:8080/api";
     // Service logic
-    // ...
-
-
-
-    var wails = [{text: 'I hate haters', name: 'Scarce chuckwalla', timestamp: new Date() , upVotes: 10, downVotes:15},
-      {text: 'I\'m sick of all this here nonsense guys!', name: 'Clever boutu', timestamp: new Date(), upVotes:100, downVotes:23 },
-      {text: 'Why am I here?', name: 'Roy', timestamp: new Date(), upVotes:0, downVotes:0},
-      {text: 'HULK SMASH!!!!', name: 'The Hulk', timestamp: new Date(), upVotes:5, downVotes:2}];
+    var urlBase = "http://localhost:8080/api";
 
     // Public API here
     return {
@@ -32,6 +24,32 @@ angular.module('wailerGuiApp')
         var request = {
           method: 'POST',
           url: urlBase + '/wail',
+          data: wail,
+          headers : {
+            'Content-Type': 'application/json'
+          }
+        };
+
+        return $http(request);
+      },
+      upVote: function(wail){
+        delete wail['timestamp'];
+        var request = {
+          method: 'PUT',
+          url: urlBase + '/wail/upvote',
+          data: wail,
+          headers : {
+            'Content-Type': 'application/json'
+          }
+        };
+
+        return $http(request);
+      },
+      downVote: function(wail){
+        delete wail['timestamp'];
+        var request = {
+          method: 'PUT',
+          url: urlBase + '/wail/downvote',
           data: wail,
           headers : {
             'Content-Type': 'application/json'

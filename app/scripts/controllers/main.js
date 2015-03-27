@@ -50,14 +50,28 @@ angular.module('wailerGuiApp')
       }
     };
 
-      $scope.voteUp = function(index){
-        $scope.wails[index].upVotes += 1;
-        $log.info($scope.wails[index].text + ' increased by one upVote');
+    //TODO: Check that index and id matches, and not out of bounds
+      $scope.voteUp = function(index, id){
+        wailService.upVote($scope.wails[index])
+          .success(function(){
+            $log.info($scope.wails[index].text + ' from ' + $scope.wails[index].name + ' increased by one upVote');
+            fetchWails();
+          })
+          .error(function(){
+            $log.error('Failed to increase upVotes');
+          });
+
       };
 
       $scope.voteDown = function(index){
-        $scope.wails[index].downVotes += 1;
-        $log.info($scope.wails[index].text + ' increased by one downVote');
+        wailService.downVote($scope.wails[index])
+          .success(function(){
+            $log.info($scope.wails[index].text + ' from ' + $scope.wails[index].name + ' increased by one downVote');
+            fetchWails();
+          })
+          .error(function(){
+            $log.error('Failed to increase downVotes');
+          });
       };
 
 
