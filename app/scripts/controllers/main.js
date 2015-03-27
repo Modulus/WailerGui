@@ -33,7 +33,9 @@ angular.module('wailerGuiApp')
 
           wailService.postWail(wail)
           .success(function(data, status, headers, config){
-            $log.info('Wail posted successfully!');
+              $log.info('Wail posted successfully!');
+              $scope.newWail = '';
+              fetchWails();
           })
           .error(function(data, status, header, config){
             $log.error('Failed to post wail: '+wail);
@@ -59,7 +61,7 @@ angular.module('wailerGuiApp')
       };
 
 
-    function init() {
+    function fetchWails() {
         wailService.getWails()
           .success(function(wails){
             $scope.wails = wails.map(function(wail){
@@ -80,5 +82,5 @@ angular.module('wailerGuiApp')
           });
     }
 
-    init();
+    fetchWails();
   });
